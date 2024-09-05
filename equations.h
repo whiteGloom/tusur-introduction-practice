@@ -1,9 +1,10 @@
 #include <array>
+#include <string>
 #include <vector>
 
 using namespace std;
 
-using EquationRoots = vector<array<float, 2>>;
+using EquationRoots = vector<array<double, 2>>;
 
 class Equations {
 	public:
@@ -17,5 +18,7 @@ class Equations {
 		/// <returns>
 		///		Список примерных диапазонов, в которых находятся корни уравнения. Может быть пустым, если на выбранном участке нет корней
 		/// </returns>
-		static EquationRoots getEquationRootsByIteration(float (*equation)(float), float start, float end, float step);
+		static EquationRoots getEquationRootsByIteration(double (*equation)(double), double start, double end, double step);
+
+		static string serializeRootsForPrint(EquationRoots roots);
 };
